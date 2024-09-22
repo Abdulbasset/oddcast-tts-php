@@ -1,15 +1,14 @@
 <?php
 
 
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use SergiX44\OddcastTTS\Voices;
 
 class OddcastTest extends TestCase
 {
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_has_a_default_voice()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -17,9 +16,7 @@ class OddcastTest extends TestCase
         $this->assertInstanceOf(\SergiX44\OddcastTTS\Voices\English\Julie_US::class, $i->getVoice());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_has_a_default_text()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -27,9 +24,7 @@ class OddcastTest extends TestCase
         $this->assertSame('Hello!', $i->getText());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_generate_the_url()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -37,9 +32,7 @@ class OddcastTest extends TestCase
         $this->assertTrue(filter_var($i->getUrl(), FILTER_VALIDATE_URL) !== false);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_download_the_audio()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -47,9 +40,7 @@ class OddcastTest extends TestCase
         $this->assertTrue($i->getAudio() !== false);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_can_save_the_file()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -61,9 +52,7 @@ class OddcastTest extends TestCase
         unlink(__DIR__.'/../test.mp3');
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function can_change_the_voice()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
@@ -73,9 +62,7 @@ class OddcastTest extends TestCase
         $this->assertInstanceOf(\SergiX44\OddcastTTS\Voices\Italian\Raffaele::class, $i->getVoice());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_works_with_custom_text()
     {
         $i = new \SergiX44\OddcastTTS\Oddcast();
